@@ -15,7 +15,17 @@
 
 /* universal */
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei", serif;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
+  font-size: 100px;
   position: relative;
   min-height: 100%;
 }
@@ -25,12 +35,139 @@ body {
   font-size: 14px;
 }
 
+#app {
+  overflow: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &::after {
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
 /* header */
 
 .navbar-static-top {
-  background-color: #fff;
-  margin-bottom: 40px;
-  margin-top: 0px;
+
+  #logo {
+    position: fixed;
+    top: 14px;
+    left: .7rem;
+    z-index: 999;
+  }
+  header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    -webkit-transform-origin: 100%;
+    transform-origin: 100%;
+    -webkit-transform: rotateX(89deg) scaleX(0);
+    transform: rotateX(89deg) scaleX(0);
+
+    nav {
+      text-align: center;
+      width: 93%;
+      margin: 0 auto;
+
+      .nav-menu {
+        margin-right: 1.2rem;
+        display: inline-block;
+        vertical-align: top;
+        float: right;
+
+        li {
+          display: inline-block;
+          vertical-align: top;
+          list-style-type: none;
+
+          a {
+            display: block;
+            font-size: 14px;
+            padding: 25px 24px;
+            color: #fff;
+            text-decoration: none;
+          }
+          .active {
+            color: #BE9C29;
+          }
+          span {
+            display: inline-block;
+            font-size: 12px;
+            position: relative;
+            top: -20px;
+            left: 33px;
+            display: none;
+          }
+          &:hover {
+
+            a {
+              color: #BE9C29;
+            }
+          }
+        }
+      }
+    }
+    img {
+      display: inline-block;
+      float: left;
+      margin-top: 14px;
+    }
+  }
+  #menuBtn {
+    display: inline-block;
+    vertical-align: top;
+    position: fixed;
+    top: 0.1rem;
+    right: 4%;
+    color: #A4A4A4;
+    text-align: center;
+    z-index: 999;
+    padding: .15rem .25rem;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+
+    h4 {
+      font-size: .16rem;
+    }
+    .menu-icon {
+      margin-left: .07rem;
+      margin-top: 2%;
+      -webkit-transition: all 0.5s ease-in;
+      transition: all 0.5s ease-in;
+
+      i {
+        height: 2px;
+        width: 18px;
+        background-color: #A4A4A4;
+        display: block;
+        margin-top: 3px;
+        position: relative;
+        -webkit-transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in;
+        margin-bottom: 3px;
+      }
+    }
+  }
 }
 
 /* Sticky footer styles */
@@ -40,7 +177,7 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: .6rem;
   background-color: #000;
 
   .container {
@@ -55,5 +192,11 @@ body {
         color: inherit;
       }
     }
+  }
+}
+
+@media(min-width:641px) {
+  #app {
+    min-width: 1183px;
   }
 }

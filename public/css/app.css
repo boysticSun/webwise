@@ -21095,7 +21095,15 @@ readers do not read off random characters that represent icons */
 }
 
 /* universal */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei", serif;
+  box-sizing: border-box;
+}
+
 html {
+  font-size: 100px;
   position: relative;
   min-height: 100%;
 }
@@ -21105,11 +21113,121 @@ body {
   font-size: 14px;
 }
 
+#app {
+  overflow: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix::after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
 /* header */
-.navbar-static-top {
-  background-color: #fff;
-  margin-bottom: 40px;
-  margin-top: 0px;
+.navbar-static-top #logo {
+  position: fixed;
+  top: 14px;
+  left: 0.7rem;
+  z-index: 999;
+}
+.navbar-static-top header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  transform-origin: 100%;
+  transform: rotateX(89deg) scaleX(0);
+}
+.navbar-static-top header nav {
+  text-align: center;
+  width: 93%;
+  margin: 0 auto;
+}
+.navbar-static-top header nav .nav-menu {
+  margin-right: 1.2rem;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+.navbar-static-top header nav .nav-menu li {
+  display: inline-block;
+  vertical-align: top;
+  list-style-type: none;
+}
+.navbar-static-top header nav .nav-menu li a {
+  display: block;
+  font-size: 14px;
+  padding: 25px 24px;
+  color: #fff;
+  text-decoration: none;
+}
+.navbar-static-top header nav .nav-menu li .active {
+  color: #BE9C29;
+}
+.navbar-static-top header nav .nav-menu li span {
+  display: inline-block;
+  font-size: 12px;
+  position: relative;
+  top: -20px;
+  left: 33px;
+  display: none;
+}
+.navbar-static-top header nav .nav-menu li:hover a {
+  color: #BE9C29;
+}
+.navbar-static-top header img {
+  display: inline-block;
+  float: left;
+  margin-top: 14px;
+}
+.navbar-static-top #menuBtn {
+  display: inline-block;
+  vertical-align: top;
+  position: fixed;
+  top: 0.1rem;
+  right: 4%;
+  color: #A4A4A4;
+  text-align: center;
+  z-index: 999;
+  padding: 0.15rem 0.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+  transition: all 0.5s ease-in;
+}
+.navbar-static-top #menuBtn h4, .navbar-static-top #menuBtn .h4 {
+  font-size: 0.16rem;
+}
+.navbar-static-top #menuBtn .menu-icon {
+  margin-left: 0.07rem;
+  margin-top: 2%;
+  transition: all 0.5s ease-in;
+}
+.navbar-static-top #menuBtn .menu-icon i {
+  height: 2px;
+  width: 18px;
+  background-color: #A4A4A4;
+  display: block;
+  margin-top: 3px;
+  position: relative;
+  transition: all 0.5s ease-in;
+  margin-bottom: 3px;
 }
 
 /* Sticky footer styles */
@@ -21118,7 +21236,7 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 0.6rem;
   background-color: #000;
 }
 .footer .container {
@@ -21131,4 +21249,10 @@ body {
 }
 .footer .container p a {
   color: inherit;
+}
+
+@media (min-width: 641px) {
+  #app {
+    min-width: 1183px;
+  }
 }
